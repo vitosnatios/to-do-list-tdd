@@ -4,13 +4,12 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
 describe('Page', () => {
-  it('checks if title "This is a To Do List App that I&apos;ve made to pratice TDD" is rendered', () => {
+  it('checks if the title was rendered', () => {
     render(<MainPage ToDos={[]} />);
 
     const text = screen.getByText(
       "This is a To Do List App that I've made to pratice TDD"
     );
-    // const notFoundText = screen.getByText("");
 
     expect(text).toBeInTheDocument();
   });
@@ -26,8 +25,15 @@ describe('Page', () => {
 
     toDoList.forEach((todo) => {
       const toDoDescription = screen.getByText(todo.description);
-      expect(toDoDescription).toBeTruthy();
       expect(toDoDescription).toBeInTheDocument();
     });
+  });
+
+  it('should render the empty ToDo text', () => {
+    render(<MainPage ToDos={[]} />);
+
+    const noToDosYetText = screen.getByText("You haven't added any ToDo yet");
+
+    expect(noToDosYetText).toBeInTheDocument();
   });
 });
