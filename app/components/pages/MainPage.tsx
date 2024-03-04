@@ -2,15 +2,19 @@ import React from 'react';
 import Title from '../text/Title';
 import AppContainer from '../containers/AppContainer';
 import TaskForm from '../form/TaskForm';
+import Todo from '../Todo';
+import TodoListContainer from '../containers/TodoListContainer';
+import { IToDo } from '@/types/ToDo';
 
-type Props = {};
-
-const MainPage = (props: Props) => {
+const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
   return (
     <AppContainer>
       <Title>This is a To Do List App that I&apos;ve made to pratice TDD</Title>
       <TaskForm />
-      <div className='w-full max-w-lg mt-8'></div>
+
+      <TodoListContainer>
+        {/* <Todo title='asd' description='sasdas' id={1} /> */}
+      </TodoListContainer>
     </AppContainer>
   );
 };
