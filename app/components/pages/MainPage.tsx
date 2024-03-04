@@ -13,7 +13,11 @@ const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
       <TaskForm />
 
       <TodoListContainer>
-        {/* <Todo title='asd' description='sasdas' id={1} /> */}
+        {ToDos.length > 0 ? (
+          ToDos.map((todo) => <Todo key={todo.id} {...todo} />)
+        ) : (
+          <p></p>
+        )}
       </TodoListContainer>
     </AppContainer>
   );
