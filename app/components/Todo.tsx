@@ -1,16 +1,17 @@
 import { IToDo } from '@/types/ToDo';
-import React from 'react';
 import RemoveButton from './form/RemoveButton';
 
 const Todo = ({ id, title, description }: IToDo) => {
   return (
     <div
       aria-label={`ToDo-container-${id}`}
-      className='flex justify-between bg-blue-200 rounded-lg shadow-md p-4 mb-4'
+      className='flex justify-between bg-gradient-to-r from-blue-400 to-teal-500 rounded-lg shadow-md p-6 mb-6'
     >
       <div>
-        <h2 className='text-lg font-bold mb-2 break-all'>{title}</h2>
-        <p className='text-gray-800 break-all'>{description}</p>
+        <h2 className='text-2xl text-green-800 font-extrabold mb-2 break-all'>
+          {title}
+        </h2>
+        <p className='text-green-700 font-bold break-all'>{description}</p>
       </div>
       <RemoveButton id={id} />
     </div>
