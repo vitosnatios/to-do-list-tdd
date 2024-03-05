@@ -10,7 +10,6 @@ const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
     <AppContainer>
       <Title>This is a To Do List App that I&apos;ve made to pratice TDD</Title>
       <TaskForm />
-
       <TodoListContainer>
         {ToDos?.map((todo) => (
           <Todo key={todo.id} {...todo} />

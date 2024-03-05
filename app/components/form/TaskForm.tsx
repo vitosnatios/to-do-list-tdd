@@ -1,12 +1,17 @@
 'use client';
-import React, { FormEvent, useRef, useState } from 'react';
+import React, { FormEvent, useState } from 'react';
 import Form from './Form';
 import Input from './Input';
 import Button from './Button';
+import { useRouter } from 'next/navigation';
 
 const TaskForm = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const router = useRouter();
+
   const submitNewToDo = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
     if (
       !('title' in e.target) ||
       !('description' in e.target) ||
@@ -16,16 +21,15 @@ const TaskForm = () => {
       throw new Error('Hacker, please.');
     }
 
-    const res = await fetch('/api/newToDo', {
+    await fetch('/api/newToDo', {
       method: 'POST',
       body: JSON.stringify({
         title: e.target.title.value,
         description: e.target.description.value,
       }),
     });
-
-    const json = await res.json();
-    console.log(json);
+    setLoading(false);
+    router.refresh();
   };
 
   return (
@@ -45,8 +49,8 @@ const TaskForm = () => {
         name='description'
         required
       />
-      <Button type='submit' aria-label='task-button'>
-        Add Task
+      <Button disabled={loading} type='submit' aria-label='task-button'>
+        {loading ? 'Sending' : 'Add Task'}
       </Button>
     </Form>
   );
