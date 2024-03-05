@@ -1,11 +1,27 @@
-import Todo from '@/app/components/Todo';
 import AppContainer from '@/app/components/containers/AppContainer';
 import TodoListContainer from '@/app/components/containers/TodoListContainer';
-import MainPage from '@/app/components/pages/MainPage';
+import Button from '@/app/components/form/Button';
 import Title from '@/app/components/text/Title';
 import { IToDo } from '@/types/ToDo';
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
+
+export const TestTodo = ({ id, title, description }: IToDo) => {
+  return (
+    <div
+      aria-label={`ToDo-container-${id}`}
+      className='flex justify-between bg-gradient-to-r from-blue-400 to-teal-500 rounded-lg shadow-md p-6 mb-6'
+    >
+      <div>
+        <h2 className='text-2xl text-green-800 font-extrabold mb-2 break-all'>
+          {title}
+        </h2>
+        <p className='text-green-700 font-bold break-all'>{description}</p>
+      </div>
+      <Button aria-label='todo-delete-button'>Remove</Button>
+    </div>
+  );
+};
 
 describe('Page', () => {
   it('checks if the title was rendered', () => {
@@ -29,20 +45,7 @@ describe('Page', () => {
     render(
       <TodoListContainer>
         {ToDos?.map((todo) => (
-          <div
-            key={todo.id}
-            aria-label={`ToDo-container-${todo.id}`}
-            className='flex justify-between bg-gradient-to-r from-blue-400 to-teal-500 rounded-lg shadow-md p-6 mb-6'
-          >
-            <div>
-              <h2 className='text-2xl text-green-800 font-extrabold mb-2 break-all'>
-                {todo.title}
-              </h2>
-              <p className='text-green-700 font-bold break-all'>
-                {todo.description}
-              </p>
-            </div>
-          </div>
+          <TestTodo key={todo.id} {...todo} />
         ))}
         {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>

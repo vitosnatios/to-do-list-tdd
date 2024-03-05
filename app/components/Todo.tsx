@@ -1,5 +1,5 @@
 import { IToDo } from '@/types/ToDo';
-import RemoveButton from './form/RemoveButton';
+import RemoveForm from './form/RemoveForm';
 
 const Todo = ({ id, title, description }: IToDo) => {
   return (
@@ -13,7 +13,7 @@ const Todo = ({ id, title, description }: IToDo) => {
         </h2>
         <p className='text-green-700 font-bold break-all'>{description}</p>
       </div>
-      <RemoveButton id={id} />
+      <RemoveForm id={id} />
     </div>
   );
 };

@@ -1,16 +1,16 @@
 'use client';
 import { removeToDo } from '@/app/server-actions/removeToDo';
-import React from 'react';
-import Button from './Button';
+import RemoveButtonComponent from './RemoveButtonComponent';
+import { memo } from 'react';
 
 type Props = { id: number };
 
 const RemoveButton = ({ id }: Props) => {
   return (
     <form action={(formData) => removeToDo(id, formData)}>
-      <Button aria-label='todo-delete-button'>Remover</Button>
+      <RemoveButtonComponent />
     </form>
   );
 };
 
-export default RemoveButton;
+export default memo(RemoveButton);

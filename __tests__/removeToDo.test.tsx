@@ -1,7 +1,7 @@
-import Todo from '@/app/components/Todo';
 import TodoListContainer from '@/app/components/containers/TodoListContainer';
 import { IToDo } from '@/types/ToDo';
 import { render, screen } from '@testing-library/react';
+import { TestTodo } from './app.test';
 
 describe('ToDo remove button', () => {
   let ToDos: IToDo[] = [{ id: 1, title: 'eat', description: 'sanduish' }];
@@ -12,7 +12,7 @@ describe('ToDo remove button', () => {
     render(
       <TodoListContainer>
         {ToDos?.map((todo) => (
-          <Todo key={todo.id} {...todo} />
+          <TestTodo key={todo.id} {...todo} />
         ))}
         {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>
@@ -38,7 +38,7 @@ describe('ToDo remove button', () => {
     render(
       <TodoListContainer>
         {ToDos?.map((todo) => (
-          <Todo key={todo.id} {...todo} />
+          <TestTodo key={todo.id} {...todo} />
         ))}
         {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>

@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 import Button from './Button';
 import { useFormStatus } from 'react-dom';
 
@@ -27,4 +27,4 @@ const AddNewToDoButton = (props: Props) => {
   );
 };
 
-export default AddNewToDoButton;
+export default memo(AddNewToDoButton);

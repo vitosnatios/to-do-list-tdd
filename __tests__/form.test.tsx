@@ -1,9 +1,9 @@
-import Todo from '@/app/components/Todo';
 import TodoListContainer from '@/app/components/containers/TodoListContainer';
 import Button from '@/app/components/form/Button';
 import Form from '@/app/components/form/Form';
 import Input from '@/app/components/form/Input';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { TestTodo } from './app.test';
 
 describe('form functionality', () => {
   let form: HTMLFormElement,
@@ -66,7 +66,7 @@ describe('form functionality', () => {
         <>
           <TodoListContainer>
             {ToDos?.map((todo) => (
-              <Todo key={todo.id} {...todo} />
+              <TestTodo key={todo.id} {...todo} />
             ))}
             {ToDos.length == 0 && (
               <p className='text-indigo-700 font-bold text-lg'>
