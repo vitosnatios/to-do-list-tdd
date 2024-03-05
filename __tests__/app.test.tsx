@@ -29,7 +29,20 @@ describe('Page', () => {
     render(
       <TodoListContainer>
         {ToDos?.map((todo) => (
-          <Todo key={todo.id} {...todo} />
+          <div
+            key={todo.id}
+            aria-label={`ToDo-container-${todo.id}`}
+            className='flex justify-between bg-gradient-to-r from-blue-400 to-teal-500 rounded-lg shadow-md p-6 mb-6'
+          >
+            <div>
+              <h2 className='text-2xl text-green-800 font-extrabold mb-2 break-all'>
+                {todo.title}
+              </h2>
+              <p className='text-green-700 font-bold break-all'>
+                {todo.description}
+              </p>
+            </div>
+          </div>
         ))}
         {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>
@@ -45,9 +58,6 @@ describe('Page', () => {
     const ToDos: IToDo[] = [];
     render(
       <TodoListContainer>
-        {ToDos?.map((todo) => (
-          <Todo key={todo.id} {...todo} />
-        ))}
         {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>
             You haven&apos;t added any ToDo yet

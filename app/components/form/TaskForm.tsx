@@ -17,7 +17,7 @@ const TaskForm = () => {
       <Input
         type='text'
         placeholder='Add a new happy task...'
-        aria-label='task-input'
+        aria-label='desc-input'
         name='description'
         required
       />
