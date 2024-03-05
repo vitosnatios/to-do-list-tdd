@@ -6,11 +6,9 @@ import { render, screen } from '@testing-library/react';
 describe('Page', () => {
   it('checks if the title was rendered', () => {
     render(<MainPage ToDos={[]} />);
-
     const text = screen.getByText(
       "This is a To Do List App that I've made to pratice TDD"
     );
-
     expect(text).toBeInTheDocument();
   });
 
@@ -20,9 +18,7 @@ describe('Page', () => {
       { id: 2, title: 'ToDo 2', description: 'description from ToDo 2' },
       { id: 3, title: 'ToDo 3', description: 'description from ToDo 3' },
     ];
-
     render(<MainPage ToDos={toDoList} />);
-
     toDoList.forEach((todo) => {
       const toDoDescription = screen.getByText(todo.description);
       expect(toDoDescription).toBeInTheDocument();
@@ -31,9 +27,7 @@ describe('Page', () => {
 
   it('should render the empty ToDo text', () => {
     render(<MainPage ToDos={[]} />);
-
     const noToDosYetText = screen.getByText("You haven't added any ToDo yet");
-
     expect(noToDosYetText).toBeInTheDocument();
   });
 });

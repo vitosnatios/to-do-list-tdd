@@ -16,7 +16,9 @@ const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
         {ToDos.length > 0 ? (
           ToDos.map((todo) => <Todo key={todo.id} {...todo} />)
         ) : (
-          <p></p>
+          <p className='text-indigo-700 font-bold text-lg'>
+            You haven&apos;t added any ToDo yet
+          </p>
         )}
       </TodoListContainer>
     </AppContainer>

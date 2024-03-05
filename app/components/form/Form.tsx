@@ -5,7 +5,7 @@ const Form = ({
   ...props
 }: PropsWithChildren<FormHTMLAttributes<HTMLFormElement>>) => {
   return (
-    <form className='mt-6 flex items-center' {...props}>
+    <form className='mt-2 flex items-center' {...props}>
       {children}
     </form>
   );
