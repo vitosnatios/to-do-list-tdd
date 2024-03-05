@@ -1,4 +1,3 @@
-import React from 'react';
 import Title from '../text/Title';
 import AppContainer from '../containers/AppContainer';
 import TaskForm from '../form/TaskForm';
@@ -13,9 +12,10 @@ const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
       <TaskForm />
 
       <TodoListContainer>
-        {ToDos.length > 0 ? (
-          ToDos.map((todo) => <Todo key={todo.id} {...todo} />)
-        ) : (
+        {ToDos?.map((todo) => (
+          <Todo key={todo.id} {...todo} />
+        ))}
+        {ToDos.length == 0 && (
           <p className='text-indigo-700 font-bold text-lg'>
             You haven&apos;t added any ToDo yet
           </p>
