@@ -1,6 +1,6 @@
 import { IToDo } from '@/types/ToDo';
 import React from 'react';
-import Button from './form/Button';
+import RemoveButton from './form/RemoveButton';
 
 const Todo = ({ id, title, description }: IToDo) => {
   return (
@@ -9,10 +9,10 @@ const Todo = ({ id, title, description }: IToDo) => {
       className='flex justify-between bg-blue-200 rounded-lg shadow-md p-4 mb-4'
     >
       <div>
-        <h2 className='text-lg font-bold mb-2'>{title}</h2>
-        <p className='text-gray-800'>{description}</p>
+        <h2 className='text-lg font-bold mb-2 break-all'>{title}</h2>
+        <p className='text-gray-800 break-all'>{description}</p>
       </div>
-      <Button aria-label='todo-delete-button'>Remover</Button>
+      <RemoveButton id={id} />
     </div>
   );
 };

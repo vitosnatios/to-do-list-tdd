@@ -1,4 +1,3 @@
-import { IToDo } from '@/types/ToDo';
 import MainPage from './components/pages/MainPage';
 import { getCookie } from './utils/cookies';
 
