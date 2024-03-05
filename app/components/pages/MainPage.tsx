@@ -15,7 +15,7 @@ const MainPage = ({ ToDos }: { ToDos: IToDo[] }) => {
           <Todo key={todo.id} {...todo} />
         ))}
         {ToDos.length == 0 && (
-          <p className='text-indigo-700 font-bold text-lg'>
+          <p className='text-indigo-950 font-bold text-lg'>
             You haven&apos;t added any ToDo yet
           </p>
         )}
